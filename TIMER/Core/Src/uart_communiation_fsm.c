@@ -1,0 +1,37 @@
+/*
+ * uart_communiation_fsm.c
+ *
+ *  Created on: Dec 17, 2022
+ *      Author: Hong Phat
+ */
+#include "uart_communiation_fsm.h"
+#include "string.h"
+uint32_t ADC_value = 0;
+char str[1000] = "";
+void uart_communiation_fsm(){
+	switch(state){
+	case NORMAL:
+		if(send == 1){
+		HAL_UART_Transmit (&huart2 ,&buffer[index_buffer],1,50) ;
+		send = 0;
+		}
+		break;
+	case SEND_ADC:
+		if(send == 1){
+			HAL_UART_Transmit (&huart2 ,&buffer[index_buffer],1,50) ;
+			send = 0;
+		}
+		if(timer1_flag == 1){
+			state = NORMAL;
+		}
+		if(timer2_flag == 1){
+			setTimer2(200);
+			ADC_value = HAL_ADC_GetValue (&hadc1 ) ;
+			HAL_UART_Transmit (&huart2 , ( void *) str , sprintf ( str , "%ld\r", ADC_value ) , 1000) ;
+			HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+		}
+		break;
+	default:
+		break;
+	}
+}
