@@ -55,7 +55,7 @@ void command_parser_fsm(){
 			send = 1;
 			if(buffer[--index_buffer] == '#'){
 				state2 = 0;
-				state = SEND_ADC;
+				state = 1;
 				setTimer(3000);
 				timer1_flag = 1;
 				ADC_value = HAL_ADC_GetValue (&hadc1) ;
@@ -107,7 +107,7 @@ void command_parser_fsm(){
 			buffer_flag = 0;
 			if(buffer[--index_buffer] == '#'){
 				state2 = 0;
-				state = NORMAL;
+				state = 0;
 			}
 			else{
 				state2 = 0;
@@ -115,7 +115,7 @@ void command_parser_fsm(){
 			break;
 		case 4:
 			send = 1;
-			state = NORMAL;
+			state = 0;
 			state2 = 0;
 			break;
 		default:

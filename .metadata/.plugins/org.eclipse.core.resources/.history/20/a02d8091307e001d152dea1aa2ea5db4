@@ -17,5 +17,5 @@ int send;
 uint8_t buffer[MAX_BUFFER_SIZE];
 uint8_t index_buffer ;
 uint8_t buffer_flag ;
-uint32_t ADC_value;
+
 #endif /* INC_GLOBAL_H_ */
