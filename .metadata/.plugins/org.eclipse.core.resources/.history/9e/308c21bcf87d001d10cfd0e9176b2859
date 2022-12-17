@@ -57,6 +57,7 @@ void command_parser_fsm(){
 				state2 = 0;
 				state = 1;
 				setTimer(3000);
+				setTimer2(200);
 				HAL_UART_Transmit (&huart2 ,&buffer[index_buffer],1,50) ;
 			}
 			else{

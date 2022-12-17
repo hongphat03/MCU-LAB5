@@ -1,6 +1,5 @@
-17:47:08 **** Incremental Build of configuration Debug for project TIMER ****
+18:03:12 **** Incremental Build of configuration Debug for project TIMER ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/command_parser_fsm.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/command_parser_fsm.d" -MT"Core/Src/command_parser_fsm.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/command_parser_fsm.o"
 arm-none-eabi-gcc "../Core/Src/uart_communiation_fsm.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart_communiation_fsm.d" -MT"Core/Src/uart_communiation_fsm.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/uart_communiation_fsm.o"
 arm-none-eabi-gcc -o "TIMER.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Hong Phat\Desktop\lab5\TIMER\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TIMER.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: TIMER.elf
@@ -10,7 +9,7 @@ arm-none-eabi-objdump -h -S  TIMER.elf  > "TIMER.list"
 arm-none-eabi-objcopy  -O ihex  TIMER.elf  "TIMER.hex"
 arm-none-eabi-objcopy  -O binary  TIMER.elf  "TIMER.bin"
    text	   data	    bss	    dec	    hex	filename
-  16432	    124	   2948	  19504	   4c30	TIMER.elf
+  16352	    124	   2948	  19424	   4be0	TIMER.elf
 Finished building: default.size.stdout
  
 Finished building: TIMER.bin
@@ -20,5 +19,5 @@ Finished building: TIMER.hex
 Finished building: TIMER.list
  
 
-17:47:10 Build Finished. 0 errors, 0 warnings. (took 1s.434ms)
+18:03:14 Build Finished. 0 errors, 0 warnings. (took 1s.535ms)
 
